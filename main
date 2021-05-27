@@ -1,0 +1,139 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.concurrent.TimeUnit;
+
+public class Main {
+    static WebDriver driver;
+
+    public static void main(String[] args) throws InterruptedException {
+        System.setProperty("webdriver.chrome.driver", "C:\\drivers\\14\\chromedriver_win32\\chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        driver.get("https://dgnnfgnsdvdsvd.ru/admin/login/?next=/admin/");
+
+
+        By authButton = By.xpath("//body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/div[1]");
+        By userName = By.xpath("//input[@id='id_username']");
+        By password = By.xpath("//input[@id='id_password']");
+        By authButton = By.xpath("//body/div[@id='container']/div[@id='main']/div[1]/div[1]/div[1]/form[1]/div[3]/input[1]");
+        By widgetButton = By.xpath("//*[@id=\"content-main\"]/div[1]/div[1]/table/tbody/tr[2]/th/a");
+        By newWidgetButton = By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]");
+        By addNewWidgetParametres = By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[2]");
+        By addNewWidgetCodeArea = By.xpath("//*[@id=\"widget_form\"]/div/fieldset[2]/div[2]/div/div/textarea");
+        By mainWidget = By.xpath("//*[@id=\"content-main\"]/ul/li[1]");
+        By unicalCodeWidgetMenu = By.xpath("//*[@id=\"id_code\"]");
+        By selectCodeWidgetMenu = By.xpath("//*[@id=\"id_code\"]/option[7]");
+        By selectMenuTypeWidget = By.xpath("//*[@id=\"id_kind\"]");
+        By selectMenuTypeButton = By.xpath("//*[@id=\"id_kind\"]/option[2]");
+        By pagesSelectMenu = By.xpath("//*[@id=\"id_pages\"]/option[2]");
+        By renderLevelShop = By.xpath("//*[@id=\"id_levels\"]/option[5]");
+        By subLevel = By.xpath("//*[@id=\"id_sub_levels\"]/option[3]");
+        By saveButtonAddNewWidget = By.xpath("//*[@id=\"widget_form\"]/div/div/input[1]");
+        By newWidgetNameInput = By.xpath("//*[@id=\"id_name\"]");
+        By displayOrder = By.xpath("//*[@id=\"id_sort_key\"]");
+
+        //ClientUI
+        By mainPageMenuClick = By.xpath("/html/body/div[1]/table/tbody/tr/td[1]/div/div[7]/div[1]");
+        By mainPageMenuSchedule = By.xpath("//tbody/tr[1]/td[1]/div[1]/div[5]/div[4]/div[1]");
+        By findFirstEmployee = By.xpath("/html/body/div[1]/table/tbody/tr/td[2]/div/div[3]/div/div/table/tbody/tr[1]/td[1]/div[2]/div[1]");
+        By employeeClick = By.xpath("//*[@id=\"u_table-tab\"]/div[25]/label");
+        By rulesEmployeesClick = By.xpath("/html/body/div[1]/table/tbody/tr/td[2]/div/div[4]/div/div[3]/div[24]/div/div[1]/div[2]");
+        By changeRulesEmployees = By.xpath("/html/body/div[1]/table/tbody/tr/td[2]/div/div[4]/div/div[3]/div[24]/div/div[2]/div/div[1]/div[1]/div/div[2]");
+        By saveButton = By.xpath("/html/body/div[1]/table/tbody/tr/td[2]/div/div[1]/div[1]/div[2]/div[1]/button");
+
+
+        //AdminUI - авторизация - api123121
+        driver.findElement(userName).sendKeys("n.shakirov@fbfbe.ru");
+        System.out.println("Кейс1. Ввожу логин");
+        driver.findElement(password).sendKeys("wrgbt4nh34ewfethn4");
+        System.out.println("Кейс1. Ввожу пароль");
+        driver.findElement(authButton).click();
+        System.out.println("Кейс1. Жму авторизоваться");
+
+
+        //AdminUI - проверка дизебла добавления safdvbg
+        driver.findElement(widgetButton).click();
+        System.out.println("Кейс2. Захожу в раздел erfdghbnmm");
+        driver.findElement(newWidgetButton).click();
+        System.out.println("Кейс2. Создаю новый dfrgvfb");
+        driver.findElement(addNewWidgetParametres).click();
+        driver.findElement(addNewWidgetCodeArea).clear();
+        driver.findElement(addNewWidgetCodeArea).sendKeys("{\n" + "  \"iframe\": {\n" + "    \"src\": \"{{RemoteService[questionnaire].endpoint}}worktime\",\n" + "    \"keep_alive\": true\n" + "  }\n" + "}");
+        driver.findElement(mainWidget).click();
+        driver.findElement(unicalCodeWidgetMenu).click();
+        driver.findElement(selectCodeWidgetMenu).click();
+        driver.findElement(selectMenuTypeWidget).click();
+        driver.findElement(selectMenuTypeButton).click();
+        driver.findElement(pagesSelectMenu).click();
+        driver.findElement(renderLevelShop).click();
+        driver.findElement(subLevel).click();
+        driver.findElement(newWidgetNameInput).sendKeys("Testewdrfedgfgn1231");
+        driver.findElement(displayOrder).sendKeys("1");
+        System.out.println("Кейс2. Настроил новый dfcdf");
+        driver.findElement(saveButtonAddNewWidget).click();
+        System.out.println("Кейс2. Проверил добавление нового rdefgvgnbn");
+
+
+        //ClientUI - проверка изменения типа графика из гибкого в фиксированный
+        driver.get("https://axdvsfetbhg.ru/");
+        Thread.sleep(10000);
+        driver.findElement(mainPageMenuClick).click();
+        System.out.println("Кейс3. Жму на боковую выплывашку");
+        Thread.sleep(3000);
+
+        driver.findElement(mainPageMenuSchedule).click();
+        System.out.println("Кейс4. Жму на иконку asdfvf");
+        Thread.sleep(1000);
+
+        driver.findElement(findFirstEmployee).click();
+        Thread.sleep(4000);
+        System.out.println("Кейс4. Смотрю первого в списке");
+
+        driver.findElement(employeeClick).click();
+        Thread.sleep(3000);
+        System.out.println("Кейс4. Жму на иконку Сотрудники");
+
+
+
+        //ClientUI - проверка наличия defdvfvg в админке, переход в клиентский UI и проверка первой строки с наличием текста = efdgvg
+        driver.get("https://fdfedgf.ru/admin/");
+        Thread.sleep(1000);
+        System.out.println("Кейс5. Перехожу в админку в раздел Вfedvfbv");
+
+        driver.get("https://dfrebgre.ru/admin/");
+        Thread.sleep(2000);
+        By adminBusinessDriverJoin = By.xpath("//*[@id=\"result_list\"]/tbody/tr[20]/th/a");
+        driver.findElement(adminBusinessDriverJoin).click();
+        System.out.println("Кейс5. В админке смотрю наличие раздела dsfegrbtfhb, если нахожу, перехожу в клиентский UI");
+        driver.get("https://edscfdvf.dreff.ru/");
+        Thread.sleep(5000);
+        By buttonBusinessDriver = By.xpath("//tbody/tr[1]/td[1]/div[1]/div[5]/div[1]/div[1]");
+        By checksFind = By.xpath("/html/body/div[1]/table/tbody/tr/td[2]/div/div[3]/div/div/table/tbody/tr[1]/td[1]/div[1]");
+        driver.findElement(buttonBusinessDriver).click();
+        Thread.sleep(2000);
+        driver.findElement(checksFind).getText().contains("refdgfbgvb");
+        Thread.sleep(1000);
+        System.out.println("Кейс5. Проверил наличие dsxfcvbn");
+
+
+        //ClientUI - проверка наличия виджета dsf в админке, переход в клиентский UI и проверка первой строки с наличием текста = refgrgv
+        driver.get("https://efdfgfg.ru/admin/");
+        By adminTasksJoin = By.xpath("//*[@id=\"result_list\"]/tbody/tr[10]/th/a");
+        driver.findElement(adminTasksJoin).click();
+        Thread.sleep(2000);
+        driver.get("https://sdfdfb.ru/");
+        Thread.sleep(5000);
+        By buttonTasks = By.xpath("//tbody/tr[1]/td[1]/div[1]/div[5]/div[2]/div[1]");
+        By mainCassFind = By.xpath("/html/body/div[1]/table/tbody/tr/td[2]/div/div[3]/div[2]/div/table/tbody/tr[1]/td[1]/div[1]");
+        driver.findElement(buttonTasks).click();
+        Thread.sleep(2000);
+        driver.findElement(mainCassFind).getText().contains("Главная refdrfggbrg");
+        System.out.println("Кейс6. Проверил наличие ewdsfgvb");
+
+        driver.quit();
+        System.out.println("Тесты завершены. Все кейсы пройдены.");
+    }
+}
